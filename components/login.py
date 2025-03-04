@@ -35,11 +35,7 @@ new(account_database(
   "NAME" = {ACC_NAME}
   "PASSWORD" = {ACC_PASS}
 ))
-
-if {ACC_NAME} = used
+if ACC_NAME.used or ACC_PASS.used = False 
 add.new(text)
-text.name("ErrorHandeler")
-ErrorHandeler.text("Could not create account. (Account name is used.)")
-ErrorHandeler.color(red)
-wait(5)
-delete.ErrorHandeler = True
+text.name = "ErrorHandeler"
+ErrorHandeler.text = "Failed to log into the account. (Name or password is incorrect.)"
